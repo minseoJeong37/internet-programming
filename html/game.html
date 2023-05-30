@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,35 +8,39 @@
     <link rel="stylesheet" href="../css/game.css">
     <title>Correct-ing - 스무고개</title>
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
-    <script
-    src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
+
 <body>
     <header class="header"></header>
     <div class="main-wrap">
-        <div class="tob-bar-wrap">
-            <button>x</button> <!-- 나중에 x 아이콘으로 변경 -->
-        </div>
-        <div class="title-wrap">
-            <img src="../image/correct-logo.png" alt="correcting 로고">
-            <div class="title-text-wrap">
-                <h1>Correct-ing과 함께 스무고개를 해봅시다!</h1>
-                <p>다음 빈칸에 질문 or 정답을 입력해주세요.</p>
+        <div class="div-wrap">
+            <div class="tob-bar-wrap">
+                <button>x</button> <!-- 나중에 x 아이콘으로 변경 -->
+            </div>
+            <div class="title-wrap">
+                <img src="../image/correct-logo.png" alt="correcting 로고">
+                <div class="title-text-wrap">
+                    <h1>Correct-ing과 함께 스무고개를 해봅시다!</h1>
+                    <p>다음 빈칸에 질문 or 정답을 입력해주세요.</p>
+                </div>
+            </div>
+            <div class="game-wrap">
+                <div class="user-wrap">
+                    <input type="text" id="userInput">
+                </div>
+                <div class="gpt-wrap">
+                    <h1>Yes</h1> <!-- 여기에 gpt 말 입력해야 함 -->
+                </div>
+            </div>
+            <div class="submit-wrap">
+                <button type="submit" id="submitButton">질문 전송</button>
+                <button type="submit" id="inputCorrect">정답 입력</button>
             </div>
         </div>
-        <div class="game-wrap">
-            <div class="user-wrap">
-                <input type="text" id="userInput"> 
-            </div>
-            <div class="gpt-wrap">
-                <h1>Yes</h1> <!-- 여기에 gpt 말 입력해야 함 -->
-            </div>
-        </div>
-        <div class="submit-wrap">
-            <button type="submit" id="submitButton">질문 전송</button>
-            <button type="submit" id="inputCorrect">정답 입력</button>
-        </div>    
+
     </div>
     <script type="text/javascript" src="../js/game.js"></script>
 </body>
+
 </html>
