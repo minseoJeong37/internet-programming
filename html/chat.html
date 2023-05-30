@@ -12,6 +12,37 @@
 </head>
 <body>
     <header class="header"></header>
+    <div class="main-wrap">
+        <div class="category-wrap">
+            <h1>New Chat</h1>
+            <div class="category-input-wrap">
+                <p>오늘은</p>
+                <input type="text" placeholder="원하시는 상황을 입력해주세요!">
+                <p>(으)로</p>
+            </div>
+            <button type="submit">대화하기</button>
+        </div>
+    </div>
+    <div class="chat-wrap">
+        <div class="subject-wrap">
+            <h1>상황</h1> <!-- 여기다가 사용자가 입력한 상황 넣어야함 -->
+            <button>종료하기</button>
+        </div>
+        <div class="input-wrap">
+            <div class="message-wrap">
+                <div class="gpt-message">
+                    From now on, I will talk about the part-time job situation! Please start a conversation.
+                </div>
+                <div class="user-message">
+                    welcome. How can I help you?
+                </div>
+            </div>
+            <div class="send-wrap">
+                <input type="text" placeholder="Type your message here...">
+                <button type="submit">전송</button> <!-- 나중에 이미지 넣을 거임 -->
+            </div>
+        </div>
+    </div>
     <script type="text/javascript" src="../js/chat.js"></script>
 </body>
 </html>
