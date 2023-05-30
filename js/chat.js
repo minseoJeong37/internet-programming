@@ -7,7 +7,6 @@ $("#submitButton").click(function () {
   // 버튼이 클릭되었을 때 실행할 코드 작성
   const subject = "You are a " + $("#action").val() +". Please give me the right answer for this chat Please answer in one line";
   const userChat = $("#userChat").val();
-  alert(subject);
   var divElement = document.createElement("div");
   divElement.classList.add("user-message");
   divElement.innerHTML = userChat;
