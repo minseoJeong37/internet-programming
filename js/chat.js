@@ -4,16 +4,16 @@ $(document).ready(function () {
 
 $("#submitButton").click(function () {
   // 버튼이 클릭되었을 때 실행할 코드 작성
-
-  const subject =
-    "we talk about " + $("#action").val() + " Please answer in one line";
+  const subject = "we talk about " + $("#action").val() + " Please answer in one line";
   const userChat = $("#userChat").val();
 
-<<<<<<< HEAD
+  var divElement = document.createElement("div");
+  divElement.classList.add("user-message");
+  divElement.innerHTML = userChat;
+  var messageWrap = document.querySelector(".message-wrap");    
+  messageWrap.appendChild(divElement);
+
   const url = "http://localhost:8080/chat-gpt/question";
-=======
-  const url = 'http://localhost:8080/chat-gpt/question';
->>>>>>> eb951561fa47b29c43d971c002e7076911e965de
 
   const data = {
     userRequest: subject,
@@ -30,7 +30,11 @@ $("#submitButton").click(function () {
     .then((response) => response.json())
     .then((responseData) => {
       // 요청에 대한 응답 처리
-      alert(JSON.stringify(responseData.choices[0].message.content));
+      var divElement = document.createElement("div");
+      divElement.classList.add("gpt-message");
+      divElement.innerHTML = JSON.stringify(responseData.choices[0].message.content);
+      var messageWrap = document.querySelector(".message-wrap");    
+      messageWrap.appendChild(divElement);
     })
     .catch((error) => {
       // 오류 처리
