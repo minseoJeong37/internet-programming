@@ -2,16 +2,20 @@ $(document).ready(function () {
   $(".header").load("../html/header.html");
 });
 
+
 $("#submitButton").click(function () {
   // 버튼이 클릭되었을 때 실행할 코드 작성
-  const subject = "we talk about " + $("#action").val() + " Please answer in one line";
+  const subject = "You are a " + $("#action").val() +". Please give me the right answer for this chat Please answer in one line";
   const userChat = $("#userChat").val();
-
+  alert(subject);
   var divElement = document.createElement("div");
   divElement.classList.add("user-message");
   divElement.innerHTML = userChat;
   var messageWrap = document.querySelector(".message-wrap");    
   messageWrap.appendChild(divElement);
+
+  var inputElement = document.getElementById("userChat");
+  inputElement.value = "";
 
   const url = "http://localhost:8080/chat-gpt/question";
 
@@ -35,6 +39,7 @@ $("#submitButton").click(function () {
       divElement.innerHTML = JSON.stringify(responseData.choices[0].message.content);
       var messageWrap = document.querySelector(".message-wrap");    
       messageWrap.appendChild(divElement);
+
     })
     .catch((error) => {
       // 오류 처리
