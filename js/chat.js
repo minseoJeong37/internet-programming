@@ -15,9 +15,27 @@ $("#submitButton").click(function () {
   var messageWrap = document.querySelector(".message-wrap");
   messageWrap.appendChild(divElement);
 
+  var inputValue = $('#action').val();
+  var newMessage = $('<p>').text(inputValue);
+  $('.message-wrap').append(newMessage);
+  
+  // Scroll to the bottom of .message-wrap
+  $('.message-wrap').scrollTop($('.message-wrap')[0].scrollHeight);
+
   var inputElement = document.getElementById("userChat");
   inputElement.value = "";
 
+  // 입력시 3초 제한
+  $(this).prop('disabled', true);
+  // Disable the input
+  $('#userChat').prop('disabled', true);
+  // After 3 seconds...
+  setTimeout(function() {
+      // Enable the button and input
+      $('#submitButton').prop('disabled', false);
+      $('#userChat').prop('disabled', false);
+  }, 3000); // 3000 milliseconds = 3 seconds
+        
   const url = "http://localhost:8080/chat-gpt/question";
 
   const data = {
@@ -40,13 +58,22 @@ $("#submitButton").click(function () {
       divElement.innerHTML = JSON.stringify(
         responseData.choices[0].message.content
       );
+
       var messageWrap = document.querySelector(".message-wrap");
       messageWrap.appendChild(divElement);
+
+      var inputValue = $('#action').val();
+      var newMessage = $('<p>').text(inputValue);
+      $('.message-wrap').append(newMessage);
+        
+      // Scroll to the bottom of .message-wrap
+      $('.message-wrap').scrollTop($('.message-wrap')[0].scrollHeight);
     })
     .catch((error) => {
       // 오류 처리
       console.error("Error:", error);
     });
+
 });
 
 $('#subjectButton').click(function(event){
