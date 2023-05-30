@@ -1,5 +1,6 @@
 $(document).ready(function () {
   $(".header").load("../html/header.html");
+  $("#action").focus();
 });
 
 let GPTsubject = "";
@@ -48,6 +49,7 @@ $("#submitButton").click(function () {
     // Enable the button and input
     $("#submitButton").prop("disabled", false);
     $("#userChat").prop("disabled", false);
+    $("#userChat").focus();
   }, 3000); // 3000 milliseconds = 3 seconds
 
   const url = "http://localhost:8080/chat-gpt/question";
@@ -92,6 +94,7 @@ $("#submitButton").click(function () {
 $("#subjectButton").click(function (event) {
   // Prevent the form from submitting
   event.preventDefault();
+  $("#userChat").focus();
   // Get the value from the input field
   var inputValue = $("#action").val();
   // Replace the content of the h1 tag with the input value
