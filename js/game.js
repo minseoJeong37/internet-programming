@@ -9,7 +9,7 @@ $('#submitButton').click(function() {
   const subject = "Please answer yes or no to the" + question + "question";
   const userChat = $('#userInput').val();
 
-  const url = 'http://localhost:80/chat-gpt/question';
+  const url = 'http://localhost:8080/chat-gpt/question';
 
   const data = {
     userRequest: subject,

@@ -8,7 +8,7 @@ $('#submitButton').click(function() {
   const subject = "we talk about " + $('#action').val() + " Please answer in one line";
   const userChat = $('#userChat').val();
 
-  const url = 'http://localhost:80/chat-gpt/question';
+  const url = 'http://localhost:8080/chat-gpt/question';
 
   const data = {
     userRequest: subject,
