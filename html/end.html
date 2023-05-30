@@ -16,7 +16,7 @@
     <div class="main-wrap">
         <div class="div-wrap">
             <div class="tob-bar-wrap">
-                <button>x</button> <!-- 나중에 x 아이콘으로 변경 -->
+                <button onclick="location.replace('index.html')">x</button> <!-- 나중에 x 아이콘으로 변경 -->
             </div>
             <div class="title-wrap">
                 <img src="../image/correct-logo.png" alt="correcting 로고">
@@ -27,10 +27,10 @@
             </div>
             <div class="game-wrap">
                 <div class="gpt-wrap">
-                    <h1>Banana</h1> <!-- 여기에 gpt 말 입력해야 함 -->
+                    <h1 id="gpt-text">play game with me!</h1> <!-- 여기에 gpt 말 입력해야 함 -->
                 </div>
                 <div class="user-wrap">
-                    <input type="text" id="userInput">
+                    <input type="text" id="userInput" placeholder="Type your text here..." autofocus>
                 </div>
             </div>
             <button type="submit" id="submitButton">입력 완료!</button>
