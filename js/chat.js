@@ -2,11 +2,18 @@ $(document).ready(function () {
   $(".header").load("../html/header.html");
 });
 
-$("#subject-btn").click(function () {
-  // 대화하기 버튼 클릭 시 실행 코드
-  console.log($("#action").val());
-  var subject = document.getElementById("subject-view");
-  subject.innerHTML = $("#action").val();
+let GPTsubject = "";
+
+$("#action").keydown(function (keyNum) {
+  if (keyNum.keyCode == 13) {
+    $("#subjectButton").click();
+  }
+});
+
+$("#userChat").keydown(function (keyNum) {
+  if (keyNum.keyCode == 13) {
+    $("#submitButton").click();
+  }
 });
 
 $("#submitButton").click(function () {
@@ -22,27 +29,27 @@ $("#submitButton").click(function () {
   var messageWrap = document.querySelector(".message-wrap");
   messageWrap.appendChild(divElement);
 
-  var inputValue = $('#action').val();
-  var newMessage = $('<p>').text(inputValue);
-  $('.message-wrap').append(newMessage);
-  
+  var inputValue = $("#action").val();
+  var newMessage = $("<p>").text("");
+  $(".message-wrap").append(newMessage);
+
   // Scroll to the bottom of .message-wrap
-  $('.message-wrap').scrollTop($('.message-wrap')[0].scrollHeight);
+  $(".message-wrap").scrollTop($(".message-wrap")[0].scrollHeight);
 
   var inputElement = document.getElementById("userChat");
   inputElement.value = "";
 
   // 입력시 3초 제한
-  $(this).prop('disabled', true);
+  $(this).prop("disabled", true);
   // Disable the input
-  $('#userChat').prop('disabled', true);
+  $("#userChat").prop("disabled", true);
   // After 3 seconds...
-  setTimeout(function() {
-      // Enable the button and input
-      $('#submitButton').prop('disabled', false);
-      $('#userChat').prop('disabled', false);
+  setTimeout(function () {
+    // Enable the button and input
+    $("#submitButton").prop("disabled", false);
+    $("#userChat").prop("disabled", false);
   }, 3000); // 3000 milliseconds = 3 seconds
-        
+
   const url = "http://localhost:8080/chat-gpt/question";
 
   const data = {
@@ -69,25 +76,26 @@ $("#submitButton").click(function () {
       var messageWrap = document.querySelector(".message-wrap");
       messageWrap.appendChild(divElement);
 
-      var inputValue = $('#action').val();
-      var newMessage = $('<p>').text(inputValue);
-      $('.message-wrap').append(newMessage);
-        
+      var inputValue = $("#action").val();
+      var newMessage = $("<p>").text("");
+      $(".message-wrap").append(newMessage);
+
       // Scroll to the bottom of .message-wrap
-      $('.message-wrap').scrollTop($('.message-wrap')[0].scrollHeight);
+      $(".message-wrap").scrollTop($(".message-wrap")[0].scrollHeight);
     })
     .catch((error) => {
       // 오류 처리
       console.error("Error:", error);
     });
-
 });
 
-$('#subjectButton').click(function(event){
-    // Prevent the form from submitting
-    event.preventDefault();
-    // Get the value from the input field
-    var inputValue = $('#action').val();
-    // Replace the content of the h1 tag with the input value
-    $('#subject').text(inputValue);
+$("#subjectButton").click(function (event) {
+  // Prevent the form from submitting
+  event.preventDefault();
+  // Get the value from the input field
+  var inputValue = $("#action").val();
+  // Replace the content of the h1 tag with the input value
+  $("#subject").text(inputValue);
+
+  GPTsubject = inputValue;
 });
