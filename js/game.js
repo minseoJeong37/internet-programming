@@ -6,7 +6,6 @@ const question = "elephant";
 
 $("#submitButton").click(function () {
   // 버튼이 클릭되었을 때 실행할 코드 작성
-  $("#userInput").focus();
   const subject = "Please answer yes or no to the" + question + "question";
   const userChat = $("#userInput").val();
 
@@ -16,6 +15,18 @@ $("#submitButton").click(function () {
     userRequest: subject,
     question: userChat,
   };
+
+  // 입력시 3초 제한
+  $(this).prop("disabled", true);
+  // Disable the input
+  $("#userInput").prop("disabled", true);
+  // After 3 seconds...
+  setTimeout(function () {
+    // Enable the button and input
+    $("#submitButton").prop("disabled", false);
+    $("#userInput").prop("disabled", false);
+    $("#userInput").focus();
+  }, 1500); // 1500 milliseconds = 1.5 seconds
 
   fetch(url, {
     method: "POST",
