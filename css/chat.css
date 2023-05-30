@@ -197,3 +197,7 @@
     background-color: #6AC7B2;
     animation: stripe-slide 12s infinite linear forwards;
 }
+
+.send-wrap button img {
+    width: 2rem;
+}
