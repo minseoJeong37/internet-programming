@@ -156,6 +156,7 @@
     width: 100%;
     display: flex;
     justify-content: space-between;
+    gap: 1rem;
 }
 
 .send-wrap input {
@@ -163,7 +164,7 @@
     border-radius: 0.5rem;
     border: none;
     padding: 1rem 2rem;
-    width: 75%;
+    flex-grow: 1;
     font-size: 1.2rem;
 }
 
@@ -171,8 +172,8 @@
     background: #CAE7E2;
     border-radius: 0.5rem;
     border: none;
-    width: 10%;
     cursor: pointer;
+    width: 5rem;
 }
 
 .send-wrap button:hover {

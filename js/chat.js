@@ -2,6 +2,13 @@ $(document).ready(function () {
   $(".header").load("../html/header.html");
 });
 
+$("#subject-btn").click(function () {
+  // 대화하기 버튼 클릭 시 실행 코드
+  console.log($("#action").val());
+  var subject = document.getElementById("subject-view");
+  subject.innerHTML = $("#action").val();
+});
+
 $("#submitButton").click(function () {
   // 버튼이 클릭되었을 때 실행할 코드 작성
   const subject =
