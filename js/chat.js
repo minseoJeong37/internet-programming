@@ -2,33 +2,34 @@ $(document).ready(function () {
   $(".header").load("../html/header.html");
 });
 
-$('#submitButton').click(function() {
+$("#submitButton").click(function () {
   // 버튼이 클릭되었을 때 실행할 코드 작성
 
-  const subject = "we talk about " + $('#action').val() + " Please answer in one line";
-  const userChat = $('#userChat').val();
+  const subject =
+    "we talk about " + $("#action").val() + " Please answer in one line";
+  const userChat = $("#userChat").val();
 
-  const url = 'http://localhost:80/chat-gpt/question';
+  const url = "http://localhost:8080/chat-gpt/question";
 
   const data = {
     userRequest: subject,
-    question: userChat
+    question: userChat,
   };
 
   fetch(url, {
-    method: 'POST',
+    method: "POST",
     headers: {
-      'Content-Type': 'application/json'
+      "Content-Type": "application/json",
     },
-    body: JSON.stringify(data)
+    body: JSON.stringify(data),
   })
-    .then(response => response.json())
-    .then(responseData => {
+    .then((response) => response.json())
+    .then((responseData) => {
       // 요청에 대한 응답 처리
       alert(JSON.stringify(responseData.choices[0].message.content));
     })
-    .catch(error => {
+    .catch((error) => {
       // 오류 처리
-      console.error('Error:', error);
+      console.error("Error:", error);
     });
 });
