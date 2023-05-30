@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .header-logo-wrap {
+            display: flex;
+            align-items: center;
+            gap: 1em;
+        }
+
+        .header-logo-wrap a {
+            font-weight: 500;
+            color: #6AC7B2;
+            text-decoration: none;
+            font-size: var(--font-size-larger);
+        }
+
+        .header-homelink {
+            display: inline-block;
+            height: var(--height-toolbar);
+            line-height: var(--height-toolbar);
+            cursor: pointer;
+        }
+
+        .header-logo {
+            vertical-align: middle;
+            width: 2.5em;
+            margin: 0.5em 0 0.5em 2em;
+        }
+
+        .header-nav-item {
+            font-size: var(--font-size-larger);
+            display: inline-block;
+            position: relative;
+        }
+
+        .header-nav-item:last-child {
+            margin-right: 1.6em;
+        }
+
+        .header-nav-item a {
+            display: inline-block;
+            height: var(--height-toolbar);
+            line-height: var(--height-toolbar);
+            padding: 0 2em;
+            text-decoration: none;
+            color: #000000;
+            font-weight: 500;
+        }
+
+        .header-nav-item a:hover {
+            color: #2EC4B6;
+            animation: stripe-slide 100s infinite linear forwards;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header-logo-wrap">
+        <a class="header-homelink" href="index.html">
+            <img class="header-logo" src="../image/correct-logo.png" alt="홈으로">
+        </a>
+        <a href="index.html">correct-ing</p>
+    </div>
+    <nav class="header-nav">
+        <ul>
+            <li class="header-nav-item">
+                <a href="./chat.html">챗봇</a>
+            </li>
+            <li class="header-nav-item">
+                <a href="./end.html">끝말잇기</a>
+            </li>
+            <li class="header-nav-item">
+                <a href="./game.html">스무고개</a>
+            </li>
+        </ul>
+    </nav>
+</body>
+
+</html>

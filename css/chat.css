@@ -1,0 +1,13 @@
+@import "./reset.css";
+
+.header {
+    display: flex;
+    position: sticky;
+    z-index: 2;
+    top: 0;
+    height: var(--height-toolbar);
+    justify-content: space-between;
+    align-items: center;
+    background-color: #FFFFFF;
+    color: #000000;
+}
