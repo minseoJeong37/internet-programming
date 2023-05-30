@@ -25,7 +25,7 @@ $('#submitButton').click(function() {
     .then(response => response.json())
     .then(responseData => {
       // 요청에 대한 응답 처리
-      alert(JSON.stringify(responseData));
+      alert(JSON.stringify(responseData.choices[0].message.content));
     })
     .catch(error => {
       // 오류 처리
