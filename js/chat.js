@@ -2,15 +2,17 @@ $(document).ready(function () {
   $(".header").load("../html/header.html");
 });
 
-
 $("#submitButton").click(function () {
   // 버튼이 클릭되었을 때 실행할 코드 작성
-  const subject = "You are a " + $("#action").val() +". Please give me the right answer for this chat Please answer in one line";
+  const subject =
+    "You are a " +
+    $("#action").val() +
+    ". Please give me the right answer for this chat Please answer in one line";
   const userChat = $("#userChat").val();
   var divElement = document.createElement("div");
   divElement.classList.add("user-message");
   divElement.innerHTML = userChat;
-  var messageWrap = document.querySelector(".message-wrap");    
+  var messageWrap = document.querySelector(".message-wrap");
   messageWrap.appendChild(divElement);
 
   var inputElement = document.getElementById("userChat");
@@ -35,10 +37,11 @@ $("#submitButton").click(function () {
       // 요청에 대한 응답 처리
       var divElement = document.createElement("div");
       divElement.classList.add("gpt-message");
-      divElement.innerHTML = JSON.stringify(responseData.choices[0].message.content);
-      var messageWrap = document.querySelector(".message-wrap");    
+      divElement.innerHTML = JSON.stringify(
+        responseData.choices[0].message.content
+      );
+      var messageWrap = document.querySelector(".message-wrap");
       messageWrap.appendChild(divElement);
-
     })
     .catch((error) => {
       // 오류 처리
