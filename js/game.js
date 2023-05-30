@@ -6,6 +6,7 @@ const question = "elephant";
 
 $("#submitButton").click(function () {
   // 버튼이 클릭되었을 때 실행할 코드 작성
+  $("#userInput").focus();
   const subject = "Please answer yes or no to the" + question + "question";
   const userChat = $("#userInput").val();
 
@@ -26,7 +27,8 @@ $("#submitButton").click(function () {
     .then((response) => response.json())
     .then((responseData) => {
       // 요청에 대한 응답 처리
-      alert(JSON.stringify(responseData.choices[0].message.content));
+      var result = JSON.stringify(responseData.choices[0].message.content);
+      $("#gpt-text").text(result.replace(/"/g, ""));
     })
     .catch((error) => {
       // 오류 처리
@@ -36,8 +38,11 @@ $("#submitButton").click(function () {
 
 $("#inputCorrect").click(function () {
   if ($("#userInput").val() == question) {
-    alert("정답");
+    $("#gpt-text").css("color", "#6AC7B2");
+    $("#gpt-text").text("정답");
   } else {
-    alert("실패");
+    $("#userInput").focus();
+    $("#gpt-text").css("color", "red");
+    $("#gpt-text").text("오답");
   }
 });

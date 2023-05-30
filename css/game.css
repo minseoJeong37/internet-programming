@@ -110,11 +110,13 @@
 .gpt-wrap {
     background-color: #FFFFFF;
     border-radius: 0 0 4rem 4rem;
+    text-align: center;
 }
 
 .gpt-wrap h1 {
     font-weight: 700;
     font-size: 1.5rem;
+    padding: 1rem;
 }
 
 .submit-wrap {
