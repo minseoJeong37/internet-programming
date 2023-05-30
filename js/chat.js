@@ -45,3 +45,12 @@ $("#submitButton").click(function () {
       console.error("Error:", error);
     });
 });
+
+$('#subjectButton').click(function(event){
+    // Prevent the form from submitting
+    event.preventDefault();
+    // Get the value from the input field
+    var inputValue = $('#action').val();
+    // Replace the content of the h1 tag with the input value
+    $('#subject').text(inputValue);
+});
