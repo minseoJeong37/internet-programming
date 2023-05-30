@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,32 +8,36 @@
     <link rel="stylesheet" href="../css/end.css">
     <title>Correct-ing - 끝말잇기</title>
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
-    <script
-    src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
+
 <body>
     <header class="header"></header>
     <div class="main-wrap">
-        <div class="tob-bar-wrap">
-            <button>x</button> <!-- 나중에 x 아이콘으로 변경 -->
-        </div>
-        <div class="title-wrap">
-            <img src="../image/correct-logo.png" alt="correcting 로고">
-            <div class="title-text-wrap">
-                <h1>Correct-ing과 함께 끝말잇기를 해봅시다!</h1>
-                <p>다음 빈칸에 단어를 입력해주세요.</p>
+        <div class="div-wrap">
+            <div class="tob-bar-wrap">
+                <button>x</button> <!-- 나중에 x 아이콘으로 변경 -->
             </div>
-        </div>
-        <div class="game-wrap">
-            <div class="gpt-wrap">
-                <h1>Banana</h1> <!-- 여기에 gpt 말 입력해야 함 -->
+            <div class="title-wrap">
+                <img src="../image/correct-logo.png" alt="correcting 로고">
+                <div class="title-text-wrap">
+                    <h1>Correct-ing과 함께 끝말잇기를 해봅시다!</h1>
+                    <p>다음 빈칸에 단어를 입력해주세요.</p>
+                </div>
             </div>
-            <div class="user-wrap">
-                <input type="text" id="userInput">
+            <div class="game-wrap">
+                <div class="gpt-wrap">
+                    <h1>Banana</h1> <!-- 여기에 gpt 말 입력해야 함 -->
+                </div>
+                <div class="user-wrap">
+                    <input type="text" id="userInput">
+                </div>
             </div>
+            <button type="submit" id="submitButton">입력 완료!</button>
         </div>
-        <button type="submit" id="submitButton">입력 완료!</button>
+
     </div>
     <script type="text/javascript" src="../js/end.js"></script>
 </body>
+
 </html>
