@@ -58,12 +58,12 @@
     justify-content: center;
 }
 
-.chat-text-wrap p {
+.chat-text-wrap p, .game-text-wrap p {
     margin-bottom: 0.3rem;
     font-size: 1.2rem;
 }
 
-.chat-text-wrap input {
+.chat-text-wrap input, .game-text-wrap input {
     margin-top: 2rem;
     border: none;
     border-radius: 25px;
@@ -74,9 +74,19 @@
     cursor: pointer;
 }
 
-.chat-text-wrap input:hover {
+.chat-text-wrap input:hover, .game-text-wrap input:hover {
     background-color: #CAE7E2;
     animation: stripe-slide 12s infinite linear forwards;
+}
+
+.game-text-wrap input {
+    background: #FFFFFF;
+    margin-right: 2rem;
+    margin-top: 3rem;
+}
+
+.game-text-wrap input:hover {
+    background: #ECEDF5;
 }
 
 .header {
@@ -89,4 +99,28 @@
     align-items: center;
     background-color: #FFFFFF;
     color: #000000;
+}
+
+.game-wrap {
+    background-color: #CAE7E2;
+    width: 100%;
+    height: calc(100vh - 56px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10rem;
+}
+
+.game-image-wrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+.game-image-wrap img {
+    background-color: #FFFFFF;
+    width: 25rem;
+    border-radius: 4rem 4rem 1rem 1rem;
 }
