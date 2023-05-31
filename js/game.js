@@ -3,6 +3,7 @@ $(document).ready(function () {
 });
 
 const question = "elephant";
+let count = 0;
 
 $("#submitButton").click(function () {
   // 버튼이 클릭되었을 때 실행할 코드 작성
@@ -45,15 +46,44 @@ $("#submitButton").click(function () {
       // 오류 처리
       console.error("Error:", error);
     });
+
+    increaseWidth();
 });
 
 $("#inputCorrect").click(function () {
   if ($("#userInput").val() == question) {
     $("#gpt-text").css("color", "#6AC7B2");
     $("#gpt-text").text("정답");
+    refreshPage();
   } else {
     $("#userInput").focus();
     $("#gpt-text").css("color", "red");
     $("#gpt-text").text("오답");
+    increaseWidth();
   }
 });
+
+function increaseWidth() {
+  count++;
+  var progressBar = document.getElementById('progressBar');
+  var currentWidth = parseFloat(progressBar.style.width) || 9.7;
+  var newWidth = currentWidth + 9.7;
+  
+  if (newWidth <= 100) {
+    progressBar.style.width = newWidth + '%';
+    var countElement = document.getElementById("count");
+    countElement.textContent = (count + 1) + "/10";
+  } else{
+    alert("실패");
+    refreshPage();
+  }
+  if(count==9){
+    progressBar.style.backgroundColor = "red";
+  }
+
+  
+}
+
+function refreshPage() {
+  location.reload();
+}
