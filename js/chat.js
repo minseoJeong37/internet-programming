@@ -22,7 +22,7 @@ $("#submitButton").click(function () {
   const subject =
     "You are a " +
     $("#action").val() +
-    ". Please give me the right answer for this chat Please answer in one line";
+    ". Please answer me in a simple line like a human";
   const userChat = $("#userChat").val();
   var divElement = document.createElement("div");
   divElement.classList.add("user-message");

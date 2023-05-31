@@ -2,13 +2,27 @@ $(document).ready(function () {
   $(".header").load("../html/header.html");
 });
 
-const question = "elephant";
+// 스무고개 게임에 사용될 쉬운 영어 단어 배열
+const words = [
+  "apple", "banana", "elephant", "cat", "dog", "car", "book", "chair", "tree", "sun",
+  "moon", "water", "flower", "bird", "house", "ship", "fish", "duck"
+];
+
+// 랜덤 단어 선택 함수
+function getRandomWord() {
+  const randomIndex = Math.floor(Math.random() * words.length);
+  return words[randomIndex];
+}
+
 let count = 0;
+const question = getRandomWord();
 
 $("#submitButton").click(function () {
   // 버튼이 클릭되었을 때 실행할 코드 작성
-  const subject = "Please answer yes or no to the" + question + "question";
+  const subject = "We are doing twenty questions, please answer only yes or no to " + question;
   const userChat = $("#userInput").val();
+
+$("#gpt-text").text("...");
 
   const url = "http://localhost:8080/chat-gpt/question";
 
@@ -27,7 +41,7 @@ $("#submitButton").click(function () {
     $("#submitButton").prop("disabled", false);
     $("#userInput").prop("disabled", false);
     $("#userInput").focus();
-  }, 1500); // 1500 milliseconds = 1.5 seconds
+  }, 3000); // 3000 milliseconds = 3 seconds
 
   fetch(url, {
     method: "POST",
@@ -45,6 +59,8 @@ $("#submitButton").click(function () {
     .catch((error) => {
       // 오류 처리
       console.error("Error:", error);
+      alert("잠시후 다시 시도해주세요");
+      count--;
     });
 
     increaseWidth();
@@ -54,10 +70,10 @@ $("#inputCorrect").click(function () {
   if ($("#userInput").val() == question) {
     $("#gpt-text").css("color", "#6AC7B2");
     $("#gpt-text").text("정답");
+    alert("정답!");
     refreshPage();
   } else {
     $("#userInput").focus();
-    $("#gpt-text").css("color", "red");
     $("#gpt-text").text("오답");
     increaseWidth();
   }
@@ -75,6 +91,7 @@ function increaseWidth() {
     countElement.textContent = (count + 1) + "/10";
   } else{
     alert("실패");
+    alert("정답은 " + question + " 입니다!");
     refreshPage();
   }
   if(count==9){

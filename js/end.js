@@ -21,6 +21,8 @@ $("#submitButton").click(function () {
     question: userChat,
   };
 
+  $("#gpt-text").text("...");
+
   // 입력시 3초 제한
   $(this).prop("disabled", true);
   // Disable the input
@@ -32,7 +34,7 @@ $("#submitButton").click(function () {
     $("#userInput").prop("disabled", false);
     $("#userInput").focus();
     $("#userInput").val("");
-  }, 1500); // 1500 milliseconds = 1.5 seconds
+  }, 3000); // 3000 milliseconds = 3 seconds
 
   fetch(url, {
     method: "POST",
@@ -49,6 +51,6 @@ $("#submitButton").click(function () {
     })
     .catch((error) => {
       // 오류 처리
-      console.error("Error:", error);
+      $("#gpt-text").text("다시 입력해주세요");
     });
 });
